@@ -19,7 +19,7 @@ function Login() {
             console.log(response)
             navigate('/profile')
         } catch (error) {
-            // console.log("Appwrite error :: Login error :: ", error)
+            console.log("Appwrite error :: Login error :: ", error)
             alert("Invalid Credentials")
         }
     }

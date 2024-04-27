@@ -11,6 +11,7 @@ function Profile() {
         try {
             const response = await account.get();
             setUserDetails(response);
+            // console.log(response);
         } catch (error) {
             console.error("Appwrite Error :: Profile :: error - ", error);
         }
@@ -25,7 +26,7 @@ function Profile() {
             await account.deleteSession('current');
             navigate('/');
         } catch (error) {
-            // console.log("Appwrite Error :: handleLogout :: error - ", error);
+            console.log("Appwrite Error :: handleLogout :: error - ", error);
             alert("Error in Logout")
 
         }
@@ -49,7 +50,7 @@ function Profile() {
                             </button>
                         </div>
                     </div>
-                    <TodoList />
+                    <TodoList UserID={userDetails.$userId} />
                 </>
             ) : (
                 <p className="flex justify-center item-center py-12 sm:px-6 lg:px-8">

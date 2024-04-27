@@ -4,27 +4,28 @@ import config from '../appwrite/config'
 import TodoForm from './TodoForm'
 
 
-function TodoList() {
+function TodoList({ UserID }) {
     const [todos, setTodos] = useState([])
     const [loader, setLoader] = useState(false)
 
-    const fetchTodos = async () => {
+    const fetchTodos = async (UserID) => {
         try {
             const response = await database.listDocuments(
                 config.appwriteDatabaseId,
-                config.appwriteCollectionId
+                config.appwriteCollectionId,
+                // [`user:${UserID}`]  // Filter by user ID
             )
             setTodos(response.documents)
         }
         catch (err) {
-            // console.log("Appwrite Error :: TodoList :: fetchTodos", err)
+            console.log("Appwrite Error :: TodoList :: fetchTodos", err)
             alert("Error in fetching Todos")
         }
     }
 
     useEffect(() => {
         setLoader(true)
-        fetchTodos()
+        fetchTodos(UserID)
         setLoader(false)
     }, [])
 

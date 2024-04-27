@@ -31,7 +31,7 @@ function Signup() {
 
             navigate('/profile')
         } catch (error) {
-            // console.log("Appwrite error:: Signup failed", error)
+            console.log("Appwrite error:: Signup failed", error)
             alert("Signup failed")
         }
     }
