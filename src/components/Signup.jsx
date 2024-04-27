@@ -13,13 +13,22 @@ function Signup() {
     const signupUser = async (e) => {
         e.preventDefault();
         try {
-            await account.create(
+            // Create a new account
+            const response = await account.create(
                 userId,
                 user.email,
                 user.password,
                 user.name
             )
-            // console.log(response)
+            console.log(response)
+
+            // // After successful signup, also login the user directly
+            // const session = await account.createEmailPasswordSession(
+            //     user.email,
+            //     user.password
+            // )
+            // console.log(session)
+
             navigate('/profile')
         } catch (error) {
             // console.log("Appwrite error:: Signup failed", error)

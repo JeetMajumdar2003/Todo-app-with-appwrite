@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { account } from '../appwrite/appwriteConfig'
-import { TodoForm, TodoList } from './index'
+import { TodoList } from './index'
 
 function Profile() {
     const navigate = useNavigate();
     const [userDetails, setUserDetails] = useState();
 
-    useEffect(() => {
+    const fetchUserDetails = async () => {
         try {
-            const user = account.get();
-            user.then(
-                (response) => {
-                    setUserDetails(response);
-                }
-            )
+            const response = await account.get();
+            setUserDetails(response);
         } catch (error) {
-            // console.log("Appwrite Error :: Profile :: error - ", error);
-            alert("Please Login to see Profile")
+            console.error("Appwrite Error :: Profile :: error - ", error);
         }
+    };
+
+    useEffect(() => {
+        fetchUserDetails();
     }, [])
 
     const handleLogout = async () => {
@@ -50,9 +49,6 @@ function Profile() {
                             </button>
                         </div>
                     </div>
-                    {/* TODO FORM */}
-                    {/* <TodoForm /> */}
-                    {/* TODOS BOX */}
                     <TodoList />
                 </>
             ) : (
