@@ -5,5 +5,4 @@ const config = {
     appwriteCollectionId: String(import.meta.env.VITE_APPWRITE_COLLECTION_ID),
 }
 
-
 export default config;
