@@ -19,10 +19,11 @@ function Signup() {
                 user.password,
                 user.name
             )
-            console.log(response)
+            // console.log(response)
             navigate('/profile')
         } catch (error) {
-            console.log("Appwrite error:: Signup failed", error)
+            // console.log("Appwrite error:: Signup failed", error)
+            alert("Signup failed")
         }
     }
 

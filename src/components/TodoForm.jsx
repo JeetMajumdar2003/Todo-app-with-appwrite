@@ -16,12 +16,13 @@ function TodoForm({onNewTodo}) {
                 ID.unique(),
                 { todo }
             )
-            console.log(response)
+            // console.log(response)
             setTodo('')
             onNewTodo()
         }
         catch (err) {
-            console.log("Appwrite Error :: TodoForm :: handleSubmit", err)
+            // console.log("Appwrite Error :: TodoForm :: handleSubmit", err)
+            alert("Error in creating Todo")
         }
     }
 

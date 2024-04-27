@@ -16,7 +16,8 @@ function Profile() {
                 }
             )
         } catch (error) {
-            console.log("Appwrite Error :: Profile :: error - ", error);
+            // console.log("Appwrite Error :: Profile :: error - ", error);
+            alert("Please Login to see Profile")
         }
     }, [])
 
@@ -25,7 +26,8 @@ function Profile() {
             await account.deleteSession('current');
             navigate('/');
         } catch (error) {
-            console.log("Appwrite Error :: handleLogout :: error - ", error);
+            // console.log("Appwrite Error :: handleLogout :: error - ", error);
+            alert("Error in Logout")
 
         }
     }

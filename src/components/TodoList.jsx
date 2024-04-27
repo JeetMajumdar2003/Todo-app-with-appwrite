@@ -17,7 +17,8 @@ function TodoList() {
             setTodos(response.documents)
         }
         catch (err) {
-            console.log("Appwrite Error :: TodoList :: fetchTodos", err)
+            // console.log("Appwrite Error :: TodoList :: fetchTodos", err)
+            alert("Error in fetching Todos")
         }
     }
 
@@ -34,10 +35,11 @@ function TodoList() {
                 config.appwriteCollectionId,
                 id
             )
-            console.log(response)
+            // console.log(response)
             setTodos(todos.filter(item => item.$id !== id))
         } catch (error) {
-            console.log("Appwrite Error :: TodoList :: deleteTodo", error)
+            // console.log("Appwrite Error :: TodoList :: deleteTodo", error)
+            alert("Error in deleting Todo")
         }
     }
     return (

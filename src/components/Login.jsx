@@ -16,10 +16,11 @@ function Login() {
                 user.email,
                 user.password
             )
-            console.log(response)
+            // console.log(response)
             navigate('/profile')
         } catch (error) {
-            console.log("Appwrite error :: Login error :: ", error)
+            // console.log("Appwrite error :: Login error :: ", error)
+            alert("Invalid Credentials")
         }
     }
     return (
