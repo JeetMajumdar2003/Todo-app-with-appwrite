@@ -9,8 +9,8 @@ function TodoForm({onNewTodo}) {
     const handleSubmit = async (e) => {
         try {
             e.preventDefault()
-            if (!todo) return;
-            await database.createDocument(
+            if (!todo) return
+            const response = await database.createDocument(
                 config.appwriteDatabaseId,
                 config.appwriteCollectionId,
                 ID.unique(),
