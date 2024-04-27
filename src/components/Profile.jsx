@@ -49,7 +49,7 @@ function Profile() {
                         </div>
                     </div>
                     {/* TODO FORM */}
-                    <TodoForm />
+                    {/* <TodoForm /> */}
                     {/* TODOS BOX */}
                     <TodoList />
                 </>
