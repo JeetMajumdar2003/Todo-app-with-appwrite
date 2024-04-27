@@ -13,7 +13,7 @@ function Signup() {
     const signupUser = async (e) => {
         e.preventDefault();
         try {
-            const response = await account.create(
+            await account.create(
                 userId,
                 user.email,
                 user.password,

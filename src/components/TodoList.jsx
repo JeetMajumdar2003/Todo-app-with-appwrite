@@ -30,7 +30,7 @@ function TodoList() {
 
     const deleteTodo = async (id) => {
         try {
-            const response = await database.deleteDocument(
+            await database.deleteDocument(
                 config.appwriteDatabaseId,
                 config.appwriteCollectionId,
                 id

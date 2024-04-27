@@ -12,7 +12,7 @@ function Login() {
     const loginUser = async (e) => {
         e.preventDefault();
         try {
-            const response = await account.createEmailPasswordSession(
+            await account.createEmailSession(
                 user.email,
                 user.password
             )
